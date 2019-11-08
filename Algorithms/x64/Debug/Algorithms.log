@@ -1,0 +1,6 @@
+﻿  Algorithms.cpp
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Algorithms.cpp(133,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Algorithms.cpp(168,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Algorithms.cpp(195,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Algorithms.cpp(235,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Algorithms.vcxproj -> C:\Users\lipat\source\repos\Algorithms\x64\Debug\Algorithms.exe
