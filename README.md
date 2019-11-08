@@ -12,8 +12,8 @@ Algorithms implemented in C++
 * [ ] Bucket Sort
 * [x] ShellSort
 * [x] TimSort
-* [ ] Comb Sort
-* [ ] Pigeonhole Sort
-* [ ] Cycle Sort
-* [ ] Cocktail Sort
-* [ ] Strand Sort
+* [x] Comb Sort
+* [x] Pigeonhole Sort
+* [x] Cycle Sort
+* [x] Cocktail Sort
+* [x] Strand Sort
