@@ -1,32 +1,35 @@
-// Algorithms.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-
 #include <iostream>
-#include "stllib.h"
+#include "libstl.h"
+
 using namespace std;
 
-void printVector(vector<int> data) {
+void printVector(vector<int>& data) {
 	for (int val : data) {
 		cout << val << endl;
 	}
 }
 
-void swap(vector<int> &data, int ind1, int ind2) {
+void printVector(vector<double>& data) {
+	for (double val : data) {
+		cout << val << endl;
+	}
+}
+
+void swap(vector<int>& data, int ind1, int ind2) {
 	int tempData = data[ind1];
 	data[ind1] = data[ind2];
 	data[ind2] = tempData;
 }
 
-void selectionSort(vector<int> &data) {
+void selectionSort(vector<int>& data) {
 
 	// index of sorted array
 	int sorted = 0;
-	for (int i = 0; i < data.size();i++) {
+	for (int i = 0; i < data.size(); i++) {
 		//find the minimum
 		int min = sorted;
-		for (int j = sorted; j < data.size();j++) {
-			if (data[j]<data[min]) {
+		for (int j = sorted; j < data.size(); j++) {
+			if (data[j] < data[min]) {
 				min = j;
 			}
 		}
@@ -38,30 +41,30 @@ void selectionSort(vector<int> &data) {
 	}
 }
 
-void bubbleSort(vector<int> &data) {
+void bubbleSort(vector<int>& data) {
 	bool swapped = true;
 	//do while data is not sorted
-	while(swapped) {
-		 swapped = false;
-		for (int i = 0; i < data.size()-1;i++) {
+	while (swapped) {
+		swapped = false;
+		for (int i = 0; i < data.size() - 1; i++) {
 			//swap values if i > i+1
-			if (data[i] > data[i+1]) {
+			if (data[i] > data[i + 1]) {
 				swap(data, i, i + 1);
 				//values have been swapped
 				swapped = true;
 			}
 		}
 		//data is sorted if no values are swapped
-		
-	} 
+
+	}
 }
 
-void insertionSort(vector<int> &data) {
-	for (int i = 1; i < data.size() ; i++) {
-		int place = i-1;
+void insertionSort(vector<int>& data) {
+	for (int i = 1; i < data.size(); i++) {
+		int place = i - 1;
 		int key = data[i];
 		while (place >= 0 && data[place] > key) {
-			data[place+1] = data[place];
+			data[place + 1] = data[place];
 			place--;
 		}
 		data[place + 1] = key;
@@ -72,13 +75,13 @@ void insertionSort(vector<int> &data) {
 
 
 // use two pointer
-void merge(vector<int> &data, int l, int m, int r) {
+void merge(vector<int>& data, int l, int m, int r) {
 	int n1 = m - l + 1;
 	int n2 = r - m;
 	vector<int> tr, tl;
 
 	for (int i = 0; i < n1; i++) {
-		tl.push_back(data[l+i]);
+		tl.push_back(data[l + i]);
 	}
 	for (int i = 0; i < n2; i++) {
 		tr.push_back(data[m + 1 + i]);
@@ -88,8 +91,8 @@ void merge(vector<int> &data, int l, int m, int r) {
 	int j = 0;
 	int k = l;
 
-	while (i<n1 && j<n2) {
-		if (tr[j]<tl[i]) {
+	while (i < n1 && j < n2) {
+		if (tr[j] < tl[i]) {
 			data[k] = tr[j];
 			j++;
 		}
@@ -100,7 +103,7 @@ void merge(vector<int> &data, int l, int m, int r) {
 		k++;
 	}
 
-	for (i; i < tl.size();i++) {
+	for (i; i < tl.size(); i++) {
 		data[k] = tl[i];
 		k++;
 	}
@@ -113,7 +116,7 @@ void merge(vector<int> &data, int l, int m, int r) {
 
 }
 
-void mergeS(vector<int> &data, int l, int r) {
+void mergeS(vector<int>& data, int l, int r) {
 	if (l < r) {
 		int m = (l + r) / 2;
 		mergeS(data, l, m);
@@ -122,17 +125,17 @@ void mergeS(vector<int> &data, int l, int r) {
 	}
 }
 
-void mergeSort(vector<int> &data) {
+void mergeSort(vector<int>& data) {
 	mergeS(data, 0, data.size() - 1);
 }
 
 
 
 
-int partition(vector<int> &data,int low, int high) {
+int partition(vector<int>& data, int low, int high) {
 	int piv = data[high];
 	int i = low - 1;
-	for (int j = low ; j <= high-1; j++) {
+	for (int j = low; j <= high - 1; j++) {
 		if (data[j] < piv) {
 			i++;
 			int temp = data[i];
@@ -147,21 +150,21 @@ int partition(vector<int> &data,int low, int high) {
 	return i + 1;
 }
 
-void quickS(vector<int> &data, int low, int high) {
-	if (low<high) {
+void quickS(vector<int>& data, int low, int high) {
+	if (low < high) {
 		int pivot = partition(data, low, high);
-		quickS(data, low, pivot- 1);
+		quickS(data, low, pivot - 1);
 		quickS(data, pivot + 1, high);
 	}
 
 }
 
-void quickSort(vector<int> &data) {
+void quickSort(vector<int>& data) {
 	quickS(data, 0, data.size() - 1);
 }
 
 
-void heapify(vector<int> &data, int n, int i) {
+void heapify(vector<int>& data, int n, int i) {
 	int largest = i;
 	int l = 2 * i + 1;
 	int r = 2 * i + 2;
@@ -182,12 +185,12 @@ void heapify(vector<int> &data, int n, int i) {
 
 
 
-vector<int> heapSort(vector<int> &data) {
+vector<int> heapSort(vector<int>& data) {
 	int n = (data).size();
 	for (int i = (n / 2) - 1; i >= 0; i--) {
 		heapify(data, n, i);
 	}
-	for (int i = n - 1; i >= 0;i--) {
+	for (int i = n - 1; i >= 0; i--) {
 		swap(data, 0, i);
 		heapify(data, i, 0);
 	}
@@ -195,48 +198,52 @@ vector<int> heapSort(vector<int> &data) {
 }
 
 
-void countingSort(vector<int> &data) {
-	int max = 0;
+void countingSort(vector<int>& data) {
+	int max = data[0];
+	int min = data[0];
 	for (int val : data) {
 		if (val > max) {
 			max = val;
 		}
+		if (val < min) {
+			min = val;
+		}
 	}
-	max++;
-	vector<int> keys(max);
+	vector<int> count(max - min + 1);
 	for (int val : data) {
-		keys[val]+=1;
+		count[val - min]++;
 	}
-	int curr = 0;
-	for (int i = 0; i < keys.size(); i++) {
-		curr = curr + keys[i];
-		keys[i] = curr;
+	int sum = 0;
+	for (int i = 0; i < count.size(); i++)
+	{
+		sum = count[i] + sum;
+		count[i] = sum;
 	}
 	vector<int> out(data.size());
 	for (int val : data) {
-		out[keys[val]-1] = val;
-		keys[val]--;
+		out[count[val - min] - 1] = val;
+		count[val - min] --;
 	}
 	data = out;
 }
 
-void shellSort(vector<int> &data) {
+void shellSort(vector<int>& data) {
 	int gap = data.size() / 2;
 	while (gap > 0) {
 		for (int i = gap; i < data.size(); i++) {
 			int temp = data[i];
 			int j;
-			for (j = i; j >= gap && data[j - gap] > temp; j-=gap) {
+			for (j = i; j >= gap && data[j - gap] > temp; j -= gap) {
 				data[j] = data[j - gap];
 			}
 			data[j] = temp;
 		}
-		
+
 		gap /= 2;
 	}
 }
 
-void insertionSort(vector<int> &data, int left, int right) {
+void insertionSort(vector<int>& data, int left, int right) {
 	for (int i = left + 1; i < right; i++) {
 		int place = i - 1;
 		int key = data[i];
@@ -251,18 +258,18 @@ void insertionSort(vector<int> &data, int left, int right) {
 
 
 
-void timSort(vector<int> &data) {
+void timSort(vector<int>& data) {
 	int RUN = 32;
 
-	for (int i = 0; i < data.size(); i+=RUN) {
-		insertionSort(data, i, min( (int) (i + RUN - 1), (int) (data.size())));
+	for (int i = 0; i < data.size(); i += RUN) {
+		insertionSort(data, i, min((int)(i + RUN - 1), (int)(data.size())));
 	}
 
-	for (int size = RUN; size < data.size(); size = 2*size ) {
+	for (int size = RUN; size < data.size(); size = 2 * size) {
 
-		for (int left = 0; left < data.size(); left += 2*size) {
+		for (int left = 0; left < data.size(); left += 2 * size) {
 			int mid = left + size - 1;
-			int right = min((int)(left + 2*size - 1), (int)(data.size() - 1));
+			int right = min((int)(left + 2 * size - 1), (int)(data.size() - 1));
 			merge(data, left, mid, right);
 		}
 	}
@@ -276,13 +283,13 @@ int nextGap(int gap) {
 	return gap;
 }
 
-void combSort(vector<int> &data) {
+void combSort(vector<int>& data) {
 	int gap = data.size();
 	bool swapped = true;
 	while (gap != 1 || swapped == true) {
 		gap = nextGap(gap);
 		swapped = false;
-		for (int i = 0; i < data.size() - gap; i++ ) {
+		for (int i = 0; i < data.size() - gap; i++) {
 			if (data[i] > data[i + gap]) {
 				swap(data, i, i + gap);
 			}
@@ -290,7 +297,7 @@ void combSort(vector<int> &data) {
 	}
 }
 
-void pigeonSort(vector<int> &data) {
+void pigeonSort(vector<int>& data) {
 	int min = data[0];
 	int max = data[0];
 	for (int val : data) {
@@ -320,7 +327,7 @@ void pigeonSort(vector<int> &data) {
 	}
 }
 
-void cycleSort(vector<int> &data) {
+void cycleSort(vector<int>& data) {
 
 	for (int cycle_start = 0; cycle_start <= data.size() - 2; cycle_start++) {
 		int item = data[cycle_start];
@@ -331,7 +338,7 @@ void cycleSort(vector<int> &data) {
 				pos += 1;
 			}
 		}
-		
+
 		if (pos == cycle_start) {
 			continue;
 		}
@@ -346,7 +353,7 @@ void cycleSort(vector<int> &data) {
 			data[pos] = temp;
 		}
 
-		
+
 		while (pos != cycle_start)
 		{
 			pos = cycle_start;
@@ -366,19 +373,19 @@ void cycleSort(vector<int> &data) {
 		}
 
 	}
-	
-	
+
+
 }
 
 
-void cocktailSort(vector<int> &data) {
+void cocktailSort(vector<int>& data) {
 	bool swapped = true;
 	while (swapped) {
 		swapped = false;
 		int i = 0;
 		for (i; i < data.size() - 1; i++)
 		{
-			if (data[i] > data[i+1]) {
+			if (data[i] > data[i + 1]) {
 				swap(data, i, i + 1);
 				swapped = true;
 			}
@@ -403,7 +410,7 @@ void cocktailSort(vector<int> &data) {
 
 
 
-void strandS(list<int> &in, list<int> &out) {
+void strandS(list<int>& in, list<int>& out) {
 	if (in.empty()) {
 		return;
 	}
@@ -423,10 +430,10 @@ void strandS(list<int> &in, list<int> &out) {
 		}
 	}
 	out.merge(sublist);
-	strandS(in,out);
+	strandS(in, out);
 }
 
-void strandSort(vector<int> &data) {
+void strandSort(vector<int>& data) {
 	list<int> in, out;
 	for (int val : data) {
 		in.push_back(val);
@@ -440,8 +447,85 @@ void strandSort(vector<int> &data) {
 	data = ret;
 }
 
+void bucketSort(vector<double> &data) {
+	vector<vector<double>> buckets(data.size());
+	for (int i = 0; i < data.size(); i++) {
+		vector<double> temp;
+		buckets.push_back(temp);
+	}
+	for (double val : data) {
+		int ind = data.size() * val;
+		buckets[ind].push_back(val);
+	}
+
+	for (vector<double> bucket : buckets) {
+		for (int i = 1; i < bucket.size(); i++) {
+			int target = bucket[i];
+			int ind = i - 1;
+			while (ind >= 0 && target < bucket[ind]) {
+				bucket[ind + 1] = bucket[ind];
+				ind--;
+			}
+			bucket[ind + 1] = target;
+		}
+	}
+	vector<double> ret;
+	for (int i = 0; i < buckets.size(); i++) {
+		for (int j = 0; j < buckets[i].size(); j++) {
+			ret.push_back((double) buckets[i][j]);
+		}
+	}
+	data = ret;
+}
 
 
+int getMax(vector<int> data) {
+	int max = data[0];
+	for (int val : data) {
+		if (val > max)
+		{
+			max = val;
+		}
+	}
+	return max;
+}
+
+void countingSort(vector<int> &data, int exp) {
+	int max = data[0];
+	int min = data[0];
+	for (int val : data) {
+		if ((val / exp) % 10 > max) {
+			max = (val / exp) % 10;
+		}
+		if ((val / exp) % 10 / exp < min) {
+			min = (val / exp) % 10;
+		}
+	}
+	vector<int> count(max - min + 1);
+	for (int val : data) {
+		count[((val / exp) % 10) - min]++;
+	}
+	int sum = 0;
+	for (int i = 0; i < count.size(); i++)
+	{
+		sum = count[i] + sum;
+		count[i] = sum;
+	}
+	vector<int> out(data.size());
+	for (int val : data) {
+		out[ count[((val / exp) % 10) - min] - 1] = val;
+		count[((val / exp) % 10) - min] --;
+	}
+	data = out;
+}
+
+void radixSort(vector<int> &data) {
+	int m = getMax(data);
+	for (int exp = 1; m / exp > 0; exp *= 10)
+	{
+		countingSort(data, exp);
+	}
+}
 
 
 
@@ -458,22 +542,22 @@ vector<int> noSort(vector<int> data) {
 
 
 
-void randomize(vector<int>& data) {
-
-}
-
 
 
 int main()
 {
 	vector<int> vec;
-	int items = 5;
+	int items = 60;
 	for (int i = 0; i < items; i++) {
-		vec.push_back(rand() % 100);
+		vec.push_back( (rand() % 1000));
 	}
 	cout << "Generated" << endl;
-	random_shuffle(vec.begin(),vec.end());
+	random_shuffle(vec.begin(), vec.end());
 	printVector(vec);
+	cout << "Bucket Sort" << endl;
+	radixSort(vec);
+	printVector(vec);
+	/*
 	cout << "Bubble Sort" << endl;
 	bubbleSort(vec);
 	printVector(vec);
@@ -511,25 +595,26 @@ int main()
 	printVector(vec);
 	random_shuffle(vec.begin(), vec.end());
 	cout << "Quick Sort" << endl;
-	quickSort(vec);	
+	quickSort(vec);
 	printVector(vec);
 	random_shuffle(vec.begin(), vec.end());
 	cout << "Selection Sort" << endl;
-	selectionSort(vec);	
+	selectionSort(vec);
 	printVector(vec);
 	random_shuffle(vec.begin(), vec.end());
 	cout << "Shell Sort" << endl;
-	shellSort(vec);	
+	shellSort(vec);
 	printVector(vec);
 	random_shuffle(vec.begin(), vec.end());
 	cout << "Strand Sort" << endl;
-	strandSort(vec);	
+	strandSort(vec);
 	printVector(vec);
 	random_shuffle(vec.begin(), vec.end());
 	cout << "Tim Sort" << endl;
 	timSort(vec);
 	printVector(vec);
 	cout << endl;
+	*/
 
 }
 

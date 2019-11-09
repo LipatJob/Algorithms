@@ -1,7 +1,13 @@
 ﻿  Sort.cpp
-C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(126,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(160,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(186,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(224,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(280,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(129,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(163,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(189,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(231,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(287,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(457,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(463,15): warning C4244: 'initializing': conversion from '_Ty' to 'int', possible loss of data
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(463,15): warning C4244:         with
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(463,15): warning C4244:         [
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(463,15): warning C4244:             _Ty=double
+C:\Users\lipat\source\repos\Algorithms\Algorithms\Sort.cpp(463,15): warning C4244:         ]
   Algorithms.vcxproj -> C:\Users\lipat\source\repos\Algorithms\x64\Debug\Algorithms.exe
