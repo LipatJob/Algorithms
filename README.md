@@ -8,8 +8,8 @@ Algorithms implemented in C++
 * [x] Quick Sort
 * [x] Heap Sort
 * [x] Couting Sort
-* [ ] Radix Sort
-* [ ] Bucket Sort
+* [x] Radix Sort
+* [x] Bucket Sort
 * [x] ShellSort
 * [x] TimSort
 * [x] Comb Sort
